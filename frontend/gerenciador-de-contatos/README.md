@@ -1,8 +1,8 @@
-# Documentação da API
+# Documentação Frontend
 
 ## Tabela de Conteúdos
 
-- [Documentação da API](#documentação-da-api)
+- [Documentação Frontend](#documentação-frontend)
   - [Tabela de Conteúdos](#tabela-de-conteúdos)
   - [1. Visão Geral](#1-visão-geral)
   - [2. Início Rápido](#2-início-rápido)
@@ -15,10 +15,14 @@
 
 Visão geral do projeto, um pouco das tecnologias usadas.
 
+Objetivo é construir uma aplicação simples consumindo uma api e fazendo o CRUD completo da aplicação
+
 - [React]
 - [Axios]
+- [useForm]
 - [Yup]
 - [React-Router-Dom]
+- [Toastify]
 
 ---
 

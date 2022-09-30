@@ -1,5 +1,5 @@
 .greetingsUser {
-  font-size: 30px;
+  font-size: 22px;
   color: rgb(0, 59, 79);
   font-weight: 700;
   margin: 10px;
@@ -31,6 +31,7 @@
   align-items: center;
   margin-left: 2vw;
   margin-right: 2vw;
+  padding: 20px;
 }
 .containerContacts {
   display: flex;
@@ -41,21 +42,162 @@
   justify-content: center;
 }
 .cardContact {
-  background-color: aqua;
+  background-color: #a5a5a5;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  width: 31vw;
-  margin: 0;
+  align-content: flex-start;
+  align-items: center;
+  justify-content: flex-end;
+  width: 40vw;
+  margin: 0px;
+  padding: 15px;
   border-radius: 10px;
-  padding-bottom: 13px;
+  gap: 10px;
+  word-break: break-all;
 }
 .detailsContact {
-  margin-left: 2vw;
-  margin-right: 2vw;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+}
+.divBtnCardContact {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
 }
 
-.btnContact {
-  margin-left: 2vw;
-  margin-right: 2vw;
+.btnContactManage {
+  color: white;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  height: 30px;
+  background-color: #049e70;
+}
+
+.btnContactExclude {
+  color: white;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  height: 30px;
+  background-color: #990000;
+}
+
+.modalAddContact {
+  background-color: rgb(2, 71, 95);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  backdrop-filter: blur(5px);
+  border-radius: 15px;
+  min-width: 300px;
+}
+.btnXcloseModal {
+  font-size: 20px;
+  color: white;
+  background-color: #fff0;
+  border: none;
+}
+.btnXcloseModal:hover {
+  font-weight: 700;
+}
+.closeModalBtnAddContact {
+  display: flex;
+  justify-content: flex-end;
+}
+.subtitleModal {
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  margin: 0px;
+}
+.labelModal {
+  color: white;
+  font-weight: 500;
+}
+.inputModalContact {
+  border: none;
+  border-radius: 10px;
+  min-height: 25px;
+}
+.btnCentralization {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.buttonSave {
+  color: white;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  width: 100px;
+  height: 30px;
+  background-color: #049e70;
+}
+.buttonSave:hover {
+  background-color: #047c58;
+}
+.buttonCancel {
+  color: white;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  width: 100px;
+  height: 30px;
+  background-color: #990000;
+}
+.errorsYupModal {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgb(218, 6, 6);
+  margin: 0px;
+}
+.mainMenu {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  background-color: rgb(2, 71, 95);
+  padding: 20px;
+}
+.mainMenu h2 {
+  color: white;
+}
+.mainMenu button {
+  color: white;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  width: 100px;
+  height: 30px;
+  background-color: #049e70;
+}
+.mainMenu button:hover {
+  background-color: rgb(10, 156, 112);
+  cursor: pointer;
+}
+
+@media (min-width: 800px) {
+  .cardContact {
+    width: 28vw;
+  }
+}
+@media (min-width: 1000px) {
+  .cardContact {
+    width: 20vw;
+  }
+}
+
+@media (min-width: 1300px) {
+  .cardContact {
+    width: 15vw;
+  }
 }
