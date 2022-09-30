@@ -1,9 +1,9 @@
 import Dashboard from "../../components/dashboard";
 
-const PageDashboard = ({ authenticad }) => {
+const PageDashboard = ({ authenticad, setAuthenticad }) => {
   return (
     <>
-      <Dashboard authenticad={authenticad} />
+      <Dashboard authenticad={authenticad} setAuthenticad={setAuthenticad} />
     </>
   );
 };

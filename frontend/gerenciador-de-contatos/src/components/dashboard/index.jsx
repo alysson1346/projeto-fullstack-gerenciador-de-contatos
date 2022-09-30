@@ -1,17 +1,26 @@
 import "./styles.css";
 import { Redirect } from "react-router-dom";
-import Api from "../../services";
 import { useEffect, useState } from "react";
 
-const Dashboard = ({ authenticad }) => {
+import ModalCreateContact from "../modalCreateContact";
+import ModalUpdateContact from "../modalUpdateContact";
+import GreetingUser from "../greetingUser";
+import CardContacts from "../cardContacts";
+import Api from "../../services";
+
+const Dashboard = ({ authenticad, setAuthenticad }) => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [updatecontact, setUpdatecontact] = useState(false);
   const [name, setName] = useState("Usuário");
+  const [idcontact, setIdcontact] = useState("id");
+  const [detailscontact, setDetailscontact] = useState({});
   const [contacts, setcontacts] = useState([]);
   const token = JSON.parse(localStorage.getItem("@UserAuthorization:token"));
 
   useEffect(() => {
-    Api.get("/users/me", {
+    Api.get("users/me", {
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Token ${token}`,
       },
     })
       .then((res) => {
@@ -19,7 +28,7 @@ const Dashboard = ({ authenticad }) => {
         setcontacts(res.data.contacts);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [contacts]);
 
   if (!authenticad) {
     return <Redirect to="/" />;
@@ -27,24 +36,37 @@ const Dashboard = ({ authenticad }) => {
 
   return (
     <div>
-      <h1 className="greetingsUser">Seja bem vindo {name}</h1>
-      <div className="newContactDiv">
-        <p className="newContact">
-          Para adicionar um contato basta clicar no botão
-        </p>
-        <button className="newContactBtn">+</button>
+      <GreetingUser
+        name={name}
+        setModalOpen={setModalOpen}
+        setAuthenticad={setAuthenticad}
+      />
+      <div>
+        {modalOpen && (
+          <ModalCreateContact setModalOpen={setModalOpen} token={token} />
+        )}
+      </div>
+
+      <div>
+        {updatecontact && (
+          <ModalUpdateContact
+            detailscontact={detailscontact}
+            setDetailscontact={setDetailscontact}
+            setUpdatecontact={setUpdatecontact}
+            idcontact={idcontact}
+            token={token}
+          />
+        )}
       </div>
       <div className="containerContacts">
-        {contacts.map((contact) => {
-          return (
-            <div className="cardContact">
-              <p className="detailsContact">Nome: {contact.name}</p>
-              <p className="detailsContact">Email: {contact.email}</p>
-              <p className="detailsContact">Contato: {contact.phone}</p>
-              <button className="btnContact">Gerenciar Contato</button>
-            </div>
-          );
-        })}
+        <CardContacts
+          contacts={contacts}
+          setIdcontact={setIdcontact}
+          setDetailscontact={setDetailscontact}
+          setUpdatecontact={setUpdatecontact}
+          setModalOpen={setModalOpen}
+          token={token}
+        />
       </div>
     </div>
   );

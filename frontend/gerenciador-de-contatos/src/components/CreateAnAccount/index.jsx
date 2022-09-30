@@ -47,7 +47,7 @@ const CreateAccount = ({ authenticad }) => {
       })
       .catch((err) => {
         console.log(err);
-        return toast.error("Algo deu errado!", {
+        return toast.error("E-mail já cadastrado", {
           position: "top-right",
           autoClose: 1000,
           hideProgressBar: false,
@@ -113,7 +113,7 @@ const CreateAccount = ({ authenticad }) => {
         <span className="errorsYup">{errors.passworConfirm?.message}</span>
 
         <button className="btnLogin" type="submit">
-          Login
+          Criar Conta
         </button>
         <h3 className="createAccountSubtitle">Já possui uma conta?</h3>
         <button className="registerHere" onClick={() => history.push("/")}>

@@ -29,7 +29,10 @@ function Routes() {
         </Route>
 
         <Route exact path="/dashboard">
-          <PageDashboard authenticad={authenticad} />
+          <PageDashboard
+            authenticad={authenticad}
+            setAuthenticad={setAuthenticad}
+          />
         </Route>
       </Switch>
     </>
